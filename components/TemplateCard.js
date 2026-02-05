@@ -1,8 +1,12 @@
 export default function TemplateCard({ template }) {
+  const handleImageError = (e) => {
+    e.target.src = '/placeholder.svg'
+  }
+
   return (
     <a className="card" href={template.url} target="_blank" rel="noreferrer">
       <div className="thumb">
-        <img src={template.image} alt={template.title} />
+        <img src={template.image} alt={template.title} onError={handleImageError} />
       </div>
       <div className="meta">
         <h3>{template.title}</h3>
